@@ -1,0 +1,3 @@
+https://github.com/shouldsee/pype/tarball/0.0.5
+tqdm
+numpy

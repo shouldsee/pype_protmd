@@ -1,0 +1,11 @@
+{ 
+   'in_pdb'             : 'hairpin.pdb', 
+   'n_equilibrate_step' : 1000, 
+   'n_step'             : 50000,
+   'n_step_per_pulse'   : 100,
+   'force_field'        : 'AMBER', 
+   'temp_back'          : 300,
+   'pulse_strategy'     : 'PushApartByVel([0, 1], [14, 15], 0.400000)', 
+   'sim_dir'            : 'hairpin/v0.40_t50', 
+   'top_dir'            : 'hairpin' 
+}
