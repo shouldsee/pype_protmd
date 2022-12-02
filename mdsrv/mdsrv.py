@@ -180,9 +180,12 @@ def webapp( filename="index.html",lst=lst):
     #     name = '/'.join(structurefile.split('/')[1:])
     #     struct = [path, name]
     directory = os.path.join( MODULE_DIR, "webapp" )
-    return jinja2_render_str(open(os.path.join(directory,filename),'r').read(),app.config)
+    # return render_template(filename)
+    if filename == 'index.html':
+        return jinja2_render_str(open(os.path.join(directory,filename),'r').read(),app.config)
     # dict(BASE_URL='/mdsrv/'))
-    # return send_from_directory( directory, filename )
+    else:
+        return send_from_directory( directory, filename )
 
 
 ###############
@@ -290,21 +293,7 @@ TRAJ_CACHE = TrajectoryCache()
 @requires_auth
 @crossdomain( origin='*' )
 def traj_frame( frame, root, filename ):
-    # global struct
 
-    # if request.args.get('struc') and struct==[]:
-    #     struc = request.args.get('struc')
-    #     struct = get_struc_directoy(struc)
-    # directory = get_directory( root )
-    # if directory:
-    #     path = os.path.join( directory, filename )
-    # else:
-    #     return
-    # try:
-    #     directory_struc = get_directory( struct[0] )
-    #     struc_path = os.path.join( directory_struc, struct[1] )
-    # except:
-    #     struc_path=""
         
     atom_indices = request.form.get( "atomIndices" )
     if atom_indices:
